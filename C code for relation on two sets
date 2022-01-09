@@ -1,0 +1,59 @@
+#include<stdio.h>
+#include<conio.h>
+int main()
+{
+    int s1,s2,i,j,n;
+    int domain[20],codomain[20];
+    printf("Enter Size of Domain Less than 20\n");
+    scanf("%d",&s1);
+    printf("Enter Size of Co-Domain Less than 20\n");
+    scanf("%d",&s2);
+    printf("Enter Values of Domain\n");
+    for(int i=0;i<s1;i++)
+        scanf("%d",&domain[i]);
+    printf("Enter Values of Co-Domain\n");
+    for(int i=0;i<s2;i++)
+        scanf("%d",&codomain[i]);
+    printf("1 for Division\t2 for Equal\t3 for X^2\n");
+    scanf("%d",&n);
+    switch(n)
+    {
+    	case 1:
+    	printf("{");
+		for(i=0;i<s1;i++)
+		{
+			for(j=0;j<s2;j++)
+		    {
+			if(codomain[j]%domain[i]==0)
+			printf("(%d,%d),",domain[i],codomain[j]);	
+		     }
+		}
+		printf("}");
+    		break;
+	case 2:
+	printf("{");
+		for(i=0;i<s1;i++)
+		{
+			for(j=0;j<s2;j++)
+			{
+				if(domain[i]==codomain[j])
+				printf("(%d,%d),",domain[i],codomain[j]);	
+			}				
+		} 
+		printf("}");   		
+    		break;
+	case 3:
+    	printf("{");
+		for(i=0;i<s1;i++)
+		{
+			for(j=0;j<s2;j++)
+		   {
+			if((domain[i]*domain[i])==codomain[j])
+			printf("(%d,%d),",domain[i],codomain[j]);	
+		   }				
+		} 
+		printf("}");
+    		break;   		
+	}	
+    getch();
+}
